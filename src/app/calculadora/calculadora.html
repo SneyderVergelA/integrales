@@ -1,0 +1,115 @@
+<div class="container">
+
+  <h2>Calculadora de Área entre curvas</h2>
+
+  <!-- Funciones -->
+  <div class="flex-row">
+    <div>
+      <label>f(x):</label>
+      <input type="text" [(ngModel)]="fxRaw" (blur)="onFxChange()" />
+    </div>
+
+    <div style="margin-left: 40px;">
+      <label>g(x):</label>
+      <input type="text" [(ngModel)]="gxRaw" (blur)="onGxChange()" />
+    </div>
+  </div>
+
+  <p class="note">Nota: Solo funciones polinómicas. Ejemplo: 3^2+1</p>
+
+  <hr class="section-divider" />
+
+  <!-- TABLAS -->
+  <h3>Tablas de valores</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Índice</th>
+
+        <th *ngFor="let x of xs; let i = index">
+          <input type="number" [(ngModel)]="xs[i]" (ngModelChange)="onXsChange()" />
+        </th>
+
+        <th><button (click)="addColumn()">+ Agregar</button></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td><b>f(x)</b></td>
+        <td *ngFor="let y of ysF">
+          {{ y === null ? "—" : (y | number:'1.6-6') }}
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>g(x)</b></td>
+        <td *ngFor="let y of ysG">
+          {{ y === null ? "—" : (y | number:'1.6-6') }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="section-divider" />
+
+  <!-- INTERSECCIONES -->
+  <div class="limits-box">
+
+    <h3>Intersecciones / Límites</h3>
+
+    <p>
+      Intersecciones encontradas:
+      <b>{{ intersections.length ? (intersections | json) : "—" }}</b>
+    </p>
+
+    <div *ngIf="alertNoIntersection" class="alerta">
+      ⚠️ No se encontraron puntos de intersección entre f(x) y g(x).
+      Debes ingresar límites manualmente.
+    </div>
+
+    <div class="flex-row">
+      <div>
+        <label>Desde:</label>
+        <input type="number" [(ngModel)]="limitFrom" (change)="onLimitsChange()" />
+      </div>
+
+      <div style="margin-left: 20px;">
+        <label>Hasta:</label>
+        <input type="number" [(ngModel)]="limitTo" (change)="onLimitsChange()" />
+      </div>
+    </div>
+
+    <button style="margin-top: 10px;" (click)="onLimitsChange()">Aplicar y Graficar</button>
+
+  </div>
+
+  <hr class="section-divider" />
+
+  <!-- GRAFICA -->
+  <h3>Gráfica</h3>
+  <div #plot class="plot-area"></div>
+
+  <hr class="section-divider" />
+
+  <!-- INTEGRAL -->
+  <h3>Integral</h3>
+
+  <div class="area-box" *ngIf="areaResult">
+
+    <p><b>Área encontrada:</b></p>
+
+    <!-- *** Fórmula en LaTeX SIN ERRORES *** -->
+<div id="integralFormula">
+ ∫ ( f(x) - g(x) ) dx ≈ $$\int_{{ '{' }}{{limitFrom}}{{ '}' }}^{{ '{' }}{{limitTo}}{{ '}' }}
+  \left( {{ toLatex(fxRaw) }} - {{ toLatex(gxRaw) }} \right) \, dx
+  = {{ areaResult.area | number:'1.6-6' }}\;U^2$$
+</div>
+
+
+    <h3><b>Valor = {{ areaResult.area | number:'1.6-6' }} U²</b></h3>
+
+  </div>
+
+</div>

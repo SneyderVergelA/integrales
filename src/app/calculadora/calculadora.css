@@ -1,0 +1,247 @@
+.alerta {
+  background: #ffdddd;
+  border: 1px solid #ff4d4d;
+  color: #b30000;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* ======== ESTILO GENERAL ======== */
+:host {
+  display: block;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  padding: 20px;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* ======== TÍTULOS ======== */
+h2, h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Sección separadora */
+.section-divider {
+  margin: 35px 0;
+  border-top: 2px solid #ddd;
+}
+
+/* ======== INPUTS ======== */
+input[type="text"],
+input[type="number"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  width: 160px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 3px rgba(74,144,226,0.5);
+}
+
+/* Botones */
+button {
+  padding: 7px 12px;
+  background: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+}
+button:hover {
+  background: #357abd;
+}
+
+/* ======== TABLAS ======== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+th {
+  background: #4a90e2;
+  color: white;
+  padding: 12px;
+  font-size: 15px;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+tbody tr:nth-child(even) {
+  background: #f2f7ff;
+}
+
+/* Inputs dentro de tabla */
+td input {
+  width: 75px;
+  text-align: center;
+}
+
+/* ======== PANEL LATERAL ======== */
+.side-box {
+  background: #f8faff;
+  border: 1px solid #d7e3ff;
+  border-radius: 10px;
+  padding: 15px 20px;
+  width: 260px;
+  float: right;
+  margin-left: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.side-box input {
+  width: 100%;
+}
+
+.area-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: #eef5ff;
+  border-left: 5px solid #4a90e2;
+  border-radius: 8px;
+}
+
+/* ======== TEXTO DE PASOS ======== */
+.pasos-container {
+  margin-top: 50px;
+}
+
+.step-title {
+  font-weight: bold;
+  margin-top: 18px;
+  color: #34495e;
+}
+
+code {
+  background: #f2f2f2;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* ======== GRAFICA ======== */
+.graph-container {
+  margin-top: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+.plot-area {
+  width: 100%;
+  height: 420px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 6px;
+  background: white;
+}
+
+.pasos-container {
+  margin-top: 20px;
+}
+
+.paso {
+  background: #f8f9fa;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  border-left: 4px solid #0d6efd;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.paso h4 {
+  margin: 0 0 6px 0;
+  color: #0d6efd;
+}
+
+.paso p {
+  margin: 0;
+  font-size: 15px;
+}
+
+.area-box {
+  background: #eef8ff;
+  padding: 18px;
+  border-radius: 10px;
+  border-left: 4px solid #0d6efd;
+  margin-top: 15px;
+}
+
+.area-box pre {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+
+/* Contenedor horizontal */
+.flex-row {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* separa f(x) y g(x) */
+  margin-bottom: 15px;
+}
+
+/* Grupo de etiqueta + input */
+.flex-row div label {
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 8px;
+  color: #333;
+}
+
+/* Inputs f(x) y g(x) */
+.flex-row div input {
+  padding: 8px 12px;
+  width: 180px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hover */
+.flex-row div input:hover {
+  border-color: #999;
+}
+
+/* Focus */
+.flex-row div input:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 6px rgba(30, 136, 229, 0.4);
+  background: #fff;
+  outline: none;
+}
