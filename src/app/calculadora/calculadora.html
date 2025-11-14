@@ -98,14 +98,26 @@
 
   <div class="area-box" *ngIf="areaResult">
 
-    <p><b>Área encontrada:</b></p>
+    <p><b>Área encontrada: ∫ ( f(x) - g(x) ) dx ≈</b></p>
 
     <!-- *** Fórmula en LaTeX SIN ERRORES *** -->
-<div id="integralFormula">
- ∫ ( f(x) - g(x) ) dx ≈ $$\int_{{ '{' }}{{limitFrom}}{{ '}' }}^{{ '{' }}{{limitTo}}{{ '}' }}
-  \left( {{ toLatex(fxRaw) }} - {{ toLatex(gxRaw) }} \right) \, dx
-  = {{ areaResult.area | number:'1.6-6' }}\;U^2$$
+<div
+  id="integralFormula"
+  [innerHTML]= " 
+    ('$$ \\\\∫_{' +
+      limitFrom +
+      '}^{' +
+      limitTo +
+      '} ( ' +
+      toLatex(fxRaw) +
+      ' - ' +
+      toLatex(gxRaw) +
+      ' ) \\\\ dx = ' +
+      (areaResult.area | number:'1.6-6') +
+      '\\\\ U^2 $$')
+  ">
 </div>
+
 
 
     <h3><b>Valor = {{ areaResult.area | number:'1.6-6' }} U²</b></h3>
